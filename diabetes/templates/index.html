@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index Page</title>
+      <link rel="stylesheet" href="{% static 'style.css' %}" />
+</head>
+<body>
+  <nav class="navbar">
+        <div class="navbar-brand">Diabetes Prediction System</div>
+    <div class="navbar-buttons">
+       <a class="button" href="{% url 'login' %}">Login</a>
+    <a class="button" href="{% url 'register' %}">Register</a>
+    </div>
+</body>
+</html>

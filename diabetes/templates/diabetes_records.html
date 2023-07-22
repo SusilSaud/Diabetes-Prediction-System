@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Diabetes Record</title>
+    <link rel="stylesheet" href="{% static 'dstyle.css' %}" />
+</head>
+<body>
+    <h2 align="center">Your Diabetes Records</h2>
+
+    {% if diabetes_data %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Pregnancies</th>
+                    <th>Glucose</th>
+                    <th>Blood Pressure</th>
+                    <th>Skin Thickness</th>
+                    <th>Insulin</th>
+                    <th>BMI</th>
+                    <th>Diabetes Pedigree</th>
+                    <th>Age</th>
+                    <th>Outcome</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in diabetes_data %}
+                    <tr>
+                        <td>{{ data.pregnancies }}</td>
+                        <td>{{ data.glucose }}</td>
+                        <td>{{ data.blood_pressure }}</td>
+                        <td>{{ data.skin_thickness }}</td>
+                        <td>{{ data.insulin }}</td>
+                        <td>{{ data.bmi }}</td>
+                        <td>{{ data.diabetes_pedigree }}</td>
+                        <td>{{ data.age }}</td>
+                        <td>{{ data.outcome }}</td>
+
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    <div class="center-align">
+  <a href="{% url 'download_records' %}" class="download-button">Download PDF</a>
+</div>
+
+    {% else %}
+        <p align="center">No diabetes records found.</p>
+    {% endif %}
+
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update</title>
+
+    <style>
+  /* Form Styling */
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+  }
+
+  form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #e8f3e8; /* Specify the desired background color */
+  }
+
+    form .submit-button {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  form input[type="text"],
+  form input[type="number"],
+  form input[type="email"],
+  form input[type="password"],
+  form select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  form select {
+    height: 34px;
+  }
+
+  form button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+</style>
+
+</head>
+<body>
+
+<form method="POST" enctype="multipart/form-data" id="update-form">
+    <h2 align="center">Update Form</h2>
+  {% csrf_token %}
+  {{ form.as_p }}
+   <div class="submit-button">
+    <button type="submit">Submit</button>
+  </div>
+</form>
+
+</body>
+</html>

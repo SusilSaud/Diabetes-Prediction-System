@@ -1,0 +1,106 @@
+{% load static %}
+{% load custom_filters %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Registration</title>
+    <link rel="stylesheet" href="{% static 'rstyle.css' %}" />
+</head>
+<body>
+  <form class="register-form" method="post">
+      <h2 align="center">Registration Form</h2>
+  {% csrf_token %}
+  <div class="form-field">
+    <label for="id_username">Username:</label>
+    {{ form.username|add_class:"no-help-text" }}
+    {% if form.username.errors %}
+      <ul class="error-list">
+        {% for error in form.username.errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+  <div class="form-field">
+    <label for="id_email">Email:</label>
+    {{ form.email|add_class:"no-help-text" }}
+    {% if form.email.errors %}
+      <ul class="error-list">
+        {% for error in form.email.errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+  <div class="form-field">
+    <label for="id_password1">Password:</label>
+    {{ form.password1|add_class:"no-help-text" }}
+    {% if form.password1.errors %}
+      <ul class="error-list">
+        {% for error in form.password1.errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+  <div class="form-field">
+    <label for="id_password2">Confirm Password:</label>
+    {{ form.password2|add_class:"no-help-text" }}
+    {% if form.password2.errors %}
+      <ul class="error-list">
+        {% for error in form.password2.errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+  <div class="form-field">
+    <label for="id_name">Name:</label>
+    {{ form.name|add_class:"no-help-text" }}
+    {% if form.name.errors %}
+      <ul class="error-list">
+        {% for error in form.name.errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+  <div class="form-field">
+    <label>Gender:</label>
+    <div class="radio-field">
+      {% for radio in form.gender %}
+        {{ radio.tag }}
+        <label for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label>
+      {% endfor %}
+    </div>
+    {% if form.gender.errors %}
+      <ul class="error-list">
+        {% for error in form.gender.errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+  <div class="form-field">
+    <label for="id_age">Age:</label>
+    {{ form.age|add_class:"no-help-text" }}
+    {% if form.age.errors %}
+      <ul class="error-list">
+        {% for error in form.age.errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+  <div class="button-container">
+      <button type="submit">Register</button>
+    </div>
+      <div class="link">
+    <a href="{% url 'login' %}">Login</a>
+  </div>
+</form>
+
+
+</body>
+</html>
